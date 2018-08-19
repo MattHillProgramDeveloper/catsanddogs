@@ -144,7 +144,7 @@ elsubmit.addEventListener("click", (event) => {
     if(errorcount === 0){
         //determine the value of the type of pet searched for
         //if you get an
-        let petType = "dog";
+        let petType = "cat";
         //store the zipcode
         let zipCode = elzipcode.value;
         //pass both arguments to the find pets function
