@@ -6,12 +6,37 @@ body{
 }
 
 header{
-    
+    margin:3%;
+    h1{
+        
+        margin: 10px 0;
+        font-family: $fontstack2;
+        text-align: center;
+        @include font-color-size($grey5, 36px, bold);
+    }
+    p{
+        @extend %zero-edges;
+        @include font-color-size($grey4, 12px, inherit);
+        text-align: center;
+    }
+    img{
+
+        width: 20%;
+        margin-left: 40%;
+        @include mq(medium){
+            width: 6%;
+            margin-left: 47%;
+          }
+        @include mq(large){
+            width: 3%;
+            margin-left: 48.5%;
+        } 
+    }
 }
 
-//this makes sure the floated elements in the main body take up vertical space
  main{
      overflow: auto;
+
  }
 
 

@@ -1,5 +1,5 @@
 @import url("https://use.typekit.net/nnw8apr.css");
-header p, article .pictureframe, article .pictureframe img, article .slideinfo, article p {
+article .pictureframe, article .pictureframe img, article .slideinfo, article p {
   margin: 0;
   border: 0;
   padding: 0; }
@@ -8,32 +8,6 @@ body {
   background-color: #F8F8F8;
   font-family: Georgia, Arial, Helvetica, sans-serif;
   perspective: 800px; }
-
-header {
-  margin: 3%; }
-  header h1 {
-    margin: 10px 0;
-    font-family: "Futura PT Bold", Arial, Helvetica, sans-serif;
-    text-align: center;
-    color: #333333;
-    font-size: 36px;
-    font-weight: bold; }
-  header p {
-    color: #666666;
-    font-size: 12px;
-    font-weight: inherit;
-    text-align: center; }
-  header img {
-    width: 20%;
-    margin-left: 40%; }
-    @media (min-width: 600px) {
-      header img {
-        width: 6%;
-        margin-left: 47%; } }
-    @media (min-width: 800px) {
-      header img {
-        width: 3%;
-        margin-left: 48.5%; } }
 
 main {
   overflow: auto; }
