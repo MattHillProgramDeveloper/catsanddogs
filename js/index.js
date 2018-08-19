@@ -6,6 +6,7 @@ const eldogradbtn = document.querySelector("#dog");
 const elbirdradbtn = document.querySelector("#bird");
 const elotherradbtn = document.querySelector("#other");
 const elbarnyardradbtn = document.querySelector("#barnyard");
+const elreptileradbtn = document.querySelector("#reptile");
 const elsmallfurryradbtn = document.querySelector("#smallfurry");
 const elhorseradbtn = document.querySelector("#horse");
 const elzipcode = document.querySelector("#zipcode");
@@ -168,14 +169,15 @@ elsubmit.addEventListener("click", (event) => {
         if(elbarnyardradbtn.checked){
             petType = elbarnyardradbtn.value;
         }
+        if(elreptileradbtn.checked){
+            petType = elreptileradbtn.value;
+        }
         if(elsmallfurryradbtn.checked){
             petType = elsmallfurryradbtn.value;
         }
         if(elhorseradbtn.checked){
             petType = elhorseradbtn.value;
         }
-
-         
 
         //store the zipcode
         let zipCode = elzipcode.value;

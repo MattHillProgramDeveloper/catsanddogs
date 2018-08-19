@@ -20,32 +20,36 @@
         <form class="searchbar">
             <fieldset>
                 <p>
-                    <input type="radio" name="pettype" id="cat" value="cat" checked="checked">
-                    <label id="catlabel" for="cat" role="radio">Cat</label>
+                    <input type="radio" name="pettype" id="cat" value="cat" checked="checked" class="visually-hidden">
+                    <label id="catlabel" for="cat" role="radio"><img src="images/icons/Cat.png" alt="Icon For Selecting Cat"></label>
                 </p>
                 <p>
                     <input type="radio" name="pettype" id="dog" value="dog">
-                    <label id="dog" for="dog" role="radio">Dog</label>
+                    <label id="dog" for="dog" role="radio"><img src="images/icons/Dog.png" alt="Icon For Selecting Dog"></label>
                 </p>
                 <p>
                     <input type="radio" name="pettype" id="bird" value="bird">
-                    <label id="birdlabel" for="bird" role="radio">Bird</label>
+                    <label id="birdlabel" for="bird" role="radio"><img src="images/icons/Bird.png" alt="Icon For Selecting Bird"></label>
                 </p>
                 <p><!-- This has to be a fake radio button that allows dropdown -->
                     <input type="radio" name="pettype" id="other" value="other">
-                    <label id="otherlabel" for="other" role="radio">...</label>
+                    <label id="otherlabel" for="other" role="radio"><img src="images/icons/Other.png" alt="Icon For Selecting Other"></label>
                 </p>
                 <p>
                     <input type="radio" name="pettype" id="barnyard" value="barnyard">
-                    <label id="barnyardlabel" for="barnyard" role="radio">Barnyard</label>
+                    <label id="barnyardlabel" for="barnyard" role="radio"><img src="images/icons/Barnyard.png" alt="Icon For Selecting Barnyard"></label>
+                </p>
+                <p>
+                    <input type="radio" name="pettype" id="reptile" value="reptile">
+                    <label id="reptilelabel" for="reptile" role="radio"><img src="images/icons/Reptile.png" alt="Icon For Selecting Reptile"></label>
                 </p>
                 <p>
                     <input type="radio" name="pettype" id="smallfurry" value="smallfurry">
-                    <label id="smallfurrylabel" for="smallfurry" role="radio">Smallfurry</label>
+                    <label id="smallfurrylabel" for="smallfurry" role="radio"><img src="images/icons/Smallfurry.png" alt="Icon For Selecting Smallfurry"></label>
                 </p>
                 <p>
                     <input type="radio" name="pettype" id="horse" value="horse">
-                    <label id="horselabel" for="horse" role="radio">Horse</label>
+                    <label id="horselabel" for="horse" role="radio"><img src="images/icons/Horse.png" alt="Icon For Selecting Horse"></label>
                 </p>
                 <p>
                     <label for="zipcode">Zip</label>
@@ -65,10 +69,12 @@
         </section>
     </main>
     <footer>
-        <p>Images courtesy of
+        <p> <a href="index.html">Pet Search</a></p>
+        <p><a href="shelter.html">Shelter Search</a></p>
+        <p>Header image courtesy of
             <a href="https://unsplash.com/">unsplash</a>
         </p>
-        <p>This will be the section that gives credit to petfinder.com</p>
+        <p>Powered by <a href="http://petfinder.com">Petfinder.com</a></p>
     </footer>
 </body>
 
