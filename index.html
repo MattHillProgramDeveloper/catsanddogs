@@ -11,33 +11,65 @@
 </head>
 
 <body>
-   <header>
+    <header>
         <h1>Cats and Do.gs</h1>
         <nav>
             <a href="index.html">Pet Search</a>
             <a href="shelter.html">Shelter Search</a>
         </nav>
         <form class="searchbar">
-
-            <p> Icons Icons Icons</p>
-            <p>
+            <fieldset>
+                <p>
+                    <input type="radio" name="pettype" id="cat" value="cat" checked="checked">
+                    <label id="catlabel" for="cat" role="radio">Cat</label>
+                </p>
+                <p>
+                    <input type="radio" name="pettype" id="dog" value="dog">
+                    <label id="dog" for="dog" role="radio">Dog</label>
+                </p>
+                <p>
+                    <input type="radio" name="pettype" id="bird" value="bird">
+                    <label id="birdlabel" for="bird" role="radio">Bird</label>
+                </p>
+                <p><!-- This has to be a fake radio button that allows dropdown -->
+                    <input type="radio" name="pettype" id="other" value="other">
+                    <label id="otherlabel" for="other" role="radio">...</label>
+                </p>
+                <p>
+                    <input type="radio" name="pettype" id="barnyard" value="barnyard">
+                    <label id="barnyardlabel" for="barnyard" role="radio">Barnyard</label>
+                </p>
+                <p>
+                    <input type="radio" name="pettype" id="smallfurry" value="smallfurry">
+                    <label id="smallfurrylabel" for="smallfurry" role="radio">Smallfurry</label>
+                </p>
+                <p>
+                    <input type="radio" name="pettype" id="horse" value="horse">
+                    <label id="horselabel" for="horse" role="radio">Horse</label>
+                </p>
+                <p>
                     <label for="zipcode">Zip</label>
                     <input type="text" name="zipcode" id="zipcode" required pattern="(^\d{5}$)|(^\d{5}-\d{4}$)">
                 </p>
-            <input type="submit" name="submit" id="submit" value="Search">
-        </form>
-   </header>
+                <input type="submit" name="submit" id="submit" value="Search">
 
-   <main>
-       <section class="resultsheader"></section>
-       <section class="results">
-           
-       </section>
-   </main>
-   <footer>
-       <p>Images courtesy of <a href="https://unsplash.com/">unsplash</a></p>
-       <p>This will be the section that gives credit to petfinder.com</p>
-   </footer>
+            </fieldset>
+
+        </form>
+    </header>
+
+    <main>
+        <section class="resultsheader"></section>
+        <section class="results">
+
+        </section>
+    </main>
+    <footer>
+        <p>Images courtesy of
+            <a href="https://unsplash.com/">unsplash</a>
+        </p>
+        <p>This will be the section that gives credit to petfinder.com</p>
+    </footer>
 </body>
 
 </html>

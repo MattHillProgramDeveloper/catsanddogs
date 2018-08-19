@@ -1,7 +1,14 @@
 //needed elements
 const elsubmit = document.querySelector("#submit");
-const elzipcode = document.querySelector("#zipcode");
 const elresultsheader = document.querySelector(".resultsheader");
+const elcatradbtn = document.querySelector("#cat");
+const eldogradbtn = document.querySelector("#dog");
+const elbirdradbtn = document.querySelector("#bird");
+const elotherradbtn = document.querySelector("#other");
+const elbarnyardradbtn = document.querySelector("#barnyard");
+const elsmallfurryradbtn = document.querySelector("#smallfurry");
+const elhorseradbtn = document.querySelector("#horse");
+const elzipcode = document.querySelector("#zipcode");
 
  let object =""; 
 
@@ -116,7 +123,7 @@ class Validator {
         const fieldValue = this.input.value;
 
         if (status.patternMismatch && this.type === "zip") {
-            this.addError("Please use your 5 or 9 digit zip code");
+            this.addError("Please use your 5 digit zip code");
         }
 
         return this.errors;
@@ -131,6 +138,10 @@ elsubmit.addEventListener("click", (event) => {
     event.preventDefault();
     removeErrors();
 
+
+
+
+
     //check zip
     let validateZip = new Validator(elzipcode, "zip");
     let zipErrors = validateZip.getMessages();
@@ -143,8 +154,29 @@ elsubmit.addEventListener("click", (event) => {
     }
     if(errorcount === 0){
         //determine the value of the type of pet searched for
-        //if you get an
-        let petType = "cat";
+        let petType = "cat"; //Cat is the default
+
+        if(elcatradbtn.checked){
+            petType = elcatradbtn.value;
+        }
+        if(eldogradbtn.checked){
+            petType = eldogradbtn.value;
+        }
+        if(elbirdradbtn.checked){
+            petType = elbirdradbtn.value;
+        }
+        if(elbarnyardradbtn.checked){
+            petType = elbarnyardradbtn.value;
+        }
+        if(elsmallfurryradbtn.checked){
+            petType = elsmallfurryradbtn.value;
+        }
+        if(elhorseradbtn.checked){
+            petType = elhorseradbtn.value;
+        }
+
+         
+
         //store the zipcode
         let zipCode = elzipcode.value;
         //pass both arguments to the find pets function
