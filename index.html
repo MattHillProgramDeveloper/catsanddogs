@@ -14,16 +14,22 @@
    <header>
         <h1>Cats and Do.gs</h1>
         <nav>
-            <a href="http://">Pet Search</a>
-            <a href="http://">Shelter Search</a>
+            <a href="index.html">Pet Search</a>
+            <a href="shelter.html">Shelter Search</a>
         </nav>
-        <section class="searchbar">
-            <p> Icons Icons Icons   Zip     SearchButton </p>
-        </section>
+        <form class="searchbar">
+
+            <p> Icons Icons Icons</p>
+            <p>
+                    <label for="zipcode">Zip</label>
+                    <input type="text" name="zipcode" id="zipcode" required pattern="(^\d{5}$)|(^\d{5}-\d{4}$)">
+                </p>
+            <input type="submit" name="submit" id="submit" value="Search">
+        </form>
    </header>
 
    <main>
-       <section class="resultsheader">Cats near ZipCode</section>
+       <section class="resultsheader"></section>
        <section class="results">
            
        </section>

@@ -1,29 +1,37 @@
+//needed elements
+const elsubmit = document.querySelector("#submit");
+const elzipcode = document.querySelector("#zipcode");
+const elresultsheader = document.querySelector(".resultsheader");
 
-//public access key for unsplash
-const pubKey = "b1932e62b44bf6eeec26b0234b0d535518f6a9c6b8aa2458833812514bc01439";
-let logo = document.querySelector("#logo");
+ let object =""; 
 
- let object ="";   
+ function findPets(petType, zipCode){
+ 
     $.ajax({
-        url:'http://api.petfinder.com/pet.find?format=json&key=b66b2fbbdcd11172493ed5c9c4a89365&animal=dog&location=30809',
+        url:'http://api.petfinder.com/pet.find?format=json&key=b66b2fbbdcd11172493ed5c9c4a89365&animal='+petType+'&location='+zipCode,
         dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
         success:function(json){
             // do stuff with json (in this case an array)
             console.log(json);
             object = json.petfinder.pets.pet;
-            displayResults(json.petfinder.pets.pet);
+            displayResults(json.petfinder.pets.pet,petType,zipCode);
         },
         //Need to put better error messages in here later #cont
+        //Come back and check invalid geographic location at header.status.message
         error:function(){
             alert("Error");
         }      
    });
+}
 
-    
+function displayResults(resultsArray,petType,zipCode){
+    //update search results header
+    elresultsheader.innerHTML = petType.toUpperCase()+'S NEAR '+zipCode;
 
-function displayResults(resultsArray){
-    //loop through the list of kitties making a figure for each one
-        let catGrid = "";
+
+
+    //loop through the list of pets making a figure for each one
+        let petGrid = "";
         let wrapper = document.querySelector('.results');
     for (let i = 0; i < resultsArray.length; i++){
         console.log(i);
@@ -39,8 +47,6 @@ function displayResults(resultsArray){
             largeURL = resultsArray[i].media.photos.photo[3]["$t"];
             largestURL = resultsArray[i].media.photos.photo[2]["$t"];
         }
-
-
 
         let petname = resultsArray[i].name["$t"];
         let cityLocation = resultsArray[i].contact.city["$t"];
@@ -71,23 +77,81 @@ function displayResults(resultsArray){
 
         let description = size +' '+age+' '+sex+' '+breed;
 
-        catGrid += '<article class="item">';
-        catGrid += '<div class="pictureframe">'
-        catGrid += '<img src="' + smallURL +'" srcset="'+smallURL+' 600w, '+mediumURL+' 1200w, '+largeURL+' 3240w" alt="' + description + '"/>';
-        catGrid += '</div>';
-        catGrid += '<div class="slideinfo">';
+        petGrid += '<article class="item">';
+        petGrid += '<div class="pictureframe">'
+        petGrid += '<img src="' + smallURL +'" srcset="'+smallURL+' 600w, '+mediumURL+' 1200w, '+largeURL+' 3240w" alt="' + description + '"/>';
+        petGrid += '</div>';
+        petGrid += '<div class="slideinfo">';
         //Just here to make testing the alt information easier.
-        catGrid += '<p class="name">'+description+'</p>';        
-        catGrid += '<p class="name">'+petname+'</p>';
-        catGrid += '<p class="location">'+cityLocation+', '+stateLocation+'</p>';
+        //petGrid += '<p class="name">'+description+'</p>';        
+        petGrid += '<p class="name">'+petname+'</p>';
+        petGrid += '<p class="location">'+cityLocation+', '+stateLocation+'</p>';
 
-        catGrid += "</div></article>";
+        petGrid += "</div></article>";
     }
-    wrapper.innerHTML=catGrid;
+    wrapper.innerHTML=petGrid;
     
 }
 
+function removeErrors() {
+    let allErrors = document.getElementsByClassName("error");
+    while (allErrors[0]) {
+        allErrors[0].parentElement.removeChild(allErrors[0]);
+    }
+}
 
+class Validator {
+    constructor(input, type) {
+        this.input = input;
+        this.type = type;
+        this.errors = [];
+    }
+
+    addError(message) {
+        this.errors.push(message);
+    }
+
+    getMessages() {
+        const status = this.input.validity;
+        const fieldValue = this.input.value;
+
+        if (status.patternMismatch && this.type === "zip") {
+            this.addError("Please use your 5 or 9 digit zip code");
+        }
+
+        return this.errors;
+    }
+}
+
+
+elsubmit.addEventListener("click", (event) => {
+
+    //reset error count and displays
+    let errorcount = 0;
+    event.preventDefault();
+    removeErrors();
+
+    //check zip
+    let validateZip = new Validator(elzipcode, "zip");
+    let zipErrors = validateZip.getMessages();
+
+    if (zipErrors.length > 0) {
+        errorcount++;
+        zipErrors.forEach((err) => {
+            elzipcode.insertAdjacentHTML('afterend', "<p class='error'>" + err + "</p>")
+        })
+    }
+    if(errorcount === 0){
+        //determine the value of the type of pet searched for
+        //if you get an
+        let petType = "dog";
+        //store the zipcode
+        let zipCode = elzipcode.value;
+        //pass both arguments to the find pets function
+        findPets(petType, zipCode);
+
+    }
+});
 
 
 console.log("index.js loaded")
