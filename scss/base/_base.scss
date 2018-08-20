@@ -1,151 +1,70 @@
 body{
-    background-color: $grey1;
-    font-family: $fontstack1;
-    //animation setup for parent container
-    perspective: 800px;
+    font-family: $fontstack2;
+    
 }
 
 header{
-    
-}
+    height: 25vh;
+    background: url("/images/krista-mangulsone-53122-unsplash.jpg") no-repeat center center;
+    background-size: cover;
+    color: $deepblue;
 
-//this makes sure the floated elements in the main body take up vertical space
- main{
-     overflow: auto;
- }
-
-
-
-article{
-
-    width:80%;
-    margin: 10%;
-    float: left;
-    background-color: black;
-    @include mq(medium){
-        position: relative;
-        width:30%;
-        margin: 2.5% 0 0 2.5%;
-        float: left;
-        height: 190px;
-        overflow: hidden;
-
-        //this makes the .slideinfo class when the mouse hovers over the parent article container
-        &:hover{
-            .slideinfo{
-                //adding in the transition
-                transform: translateY(-70px);
-            }
-        }
-
-      }
-
-    
-
- 
-    .pictureframe{
-        @extend %zero-edges;
-        width:100%;
-        @include mq(medium){
-            height: 190px;
-            overflow: hidden;
-            width: auto;
-        }
-        img{
-            width: 100%;
-            @extend %zero-edges;
-            @include mq(medium){
-                height: 100%;
-                width: 100%;
-            }
-        }
+#logo{
+        font-family: $fontstack1;
+        text-shadow: 2px 2px 8px #ffffff;
     }
-
-    .slideinfo{
-        @extend %zero-edges;
-        padding: 8px;
-        background-color: $grey5transp;
-        font-family: $fontstack3;
-        @include font-color-size($grey1, 16px, inherit);
-        transition: 1s;
-        }
-    p{
-        @extend %zero-edges;
-        @include mq(medium){
-            margin: 4px;
-        }
-    }
-
     a{
-        text-decoration: none;
-        @include font-color-size($grey1, 16px, inherit);
+        color: $deepblue;
+        text-shadow: 2px 2px 8px #ffffff;
     }
-    a:hover{
+
+    a.active{
         text-decoration: underline;
+        font-size: 110%;
     }
+
+    
 }
 
-article:nth-child(3n+1){
-    clear: left;
+#headerholder{
+    padding-top: 7vh;
 }
 
-@media (max-width:599px){
-    article{
-        clear:left;
-    }
-}
-
-
-footer{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+fieldset{
     p{
-        margin-top: 10%;
-        font-family: $fontstack3;
-        @include font-color-size($grey5, 10px, inherit);
-        a{
-            text-decoration: none;
-            color: $grey4;
-        }
-
-        a:hover{
-            text-decoration: underline;
-        }
+        display: inline;
     }
-
 }
 
-.spinner{
-    animation: spin 2.8s ease-in-out;
+label{
+    padding: 2px;
+    img{
+        width: 4rem;
+        background-color: #ffffff;
+        padding:1px;
+    }
+    img:hover{
+        padding: 5px;
+    }
 }
 
-.wiggles{
-    animation: wiggle 2s ease-in-out 10s infinite;
+.selectedIcon{
+    img{
+    background-color: $paleorange;
+    padding:4px;
+    color:$deepblue;
+    }
 }
 
-@keyframes spin{
-    to {transform: rotateY(1080deg);}
+.results{
+    overflow: auto;
+    img{
+        width: 200px;
+        height: 200px;
+    }
 }
-
-@keyframes wiggle{
-    0% {transform: translateX(0px);}
-    1% {transform: translateX(2px);}
-    2% {transform: translateX(-4px);}
-    3% {transform: translateX(6px);}
-    4% {transform: translateX(-8px);}
-    5% {transform: translateX(0px);}
-    6% {transform: translateX(2px);}
-    7% {transform: translateX(-4px);}
-    8% {transform: translateX(6px);}
-    9% {transform: translateX(-8px);}
-    10% {transform: translateX(0px);}
-    100% {transform: translateX(0px);}
-}
-
-
-
-.visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+//this makes the radio buttons invisible but still selectable
+input[type="radio"]{ /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
     position: absolute !important;
     height: 1px; width: 1px; 
     overflow: hidden;
@@ -153,3 +72,51 @@ footer{
     clip: rect(1px, 1px, 1px, 1px);
 }
 
+.search-bar{
+     background-color: $deepblue;
+     padding: 1rem;
+}
+
+//this makes the radio buttons invisible but still selectable
+.invisible{ /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+    position: absolute !important;
+    height: 1px; width: 1px; 
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+#zipcode{
+    border-radius: 5px;
+    height: 2em;
+}
+
+.error{
+    color: red;
+}
+
+#submit{
+    text-shadow: 1px 1px 8px #ffffff !important; 
+    background-color: $deepblue;
+    border: none;
+    color:#ffffff;
+    text-decoration: underline;
+    font-size: 1.7rem;
+    margin-left: 2rem;
+}
+
+.resultsheaderbkg{
+    background-color: $paleorangetransparent;
+    color: $deepblue;
+    font-size: 2rem;
+}
+
+footer{
+    background-color: $deepblue;
+    color: $paleorange;
+    font-size: .8rem;
+    padding: 1rem;
+    a{
+        color:$paleorange;
+    }
+}

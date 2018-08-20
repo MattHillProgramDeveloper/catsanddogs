@@ -4,77 +4,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS for Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- Locally Produced CSS -->
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" defer></script>
+    <!-- Latest compiled JavaScript for Bootstrap-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" defer></script>
+    <!-- Locally Produced JS -->
     <script src="js/index.js" defer></script>
     <title>CatsandDo.gs</title>
 </head>
 
 <body>
     <header>
-        <h1>Cats and Do.gs</h1>
-        <nav>
-            <a href="index.html">Pet Search</a>
-            <a href="shelter.html">Shelter Search</a>
-        </nav>
-        <form class="searchbar">
-            <fieldset>
-                <p>
-                    <input type="radio" name="pettype" id="cat" value="cat" checked="checked" class="visually-hidden">
-                    <label id="catlabel" for="cat" role="radio"><img src="images/icons/Cat.png" alt="Icon For Selecting Cat"></label>
-                </p>
-                <p>
-                    <input type="radio" name="pettype" id="dog" value="dog">
-                    <label id="dog" for="dog" role="radio"><img src="images/icons/Dog.png" alt="Icon For Selecting Dog"></label>
-                </p>
-                <p>
-                    <input type="radio" name="pettype" id="bird" value="bird">
-                    <label id="birdlabel" for="bird" role="radio"><img src="images/icons/Bird.png" alt="Icon For Selecting Bird"></label>
-                </p>
-                <p><!-- This has to be a fake radio button that allows dropdown -->
-                    <input type="radio" name="pettype" id="other" value="other">
-                    <label id="otherlabel" for="other" role="radio"><img src="images/icons/Other.png" alt="Icon For Selecting Other"></label>
-                </p>
-                <p>
-                    <input type="radio" name="pettype" id="barnyard" value="barnyard">
-                    <label id="barnyardlabel" for="barnyard" role="radio"><img src="images/icons/Barnyard.png" alt="Icon For Selecting Barnyard"></label>
-                </p>
-                <p>
-                    <input type="radio" name="pettype" id="reptile" value="reptile">
-                    <label id="reptilelabel" for="reptile" role="radio"><img src="images/icons/Reptile.png" alt="Icon For Selecting Reptile"></label>
-                </p>
-                <p>
-                    <input type="radio" name="pettype" id="smallfurry" value="smallfurry">
-                    <label id="smallfurrylabel" for="smallfurry" role="radio"><img src="images/icons/Smallfurry.png" alt="Icon For Selecting Smallfurry"></label>
-                </p>
-                <p>
-                    <input type="radio" name="pettype" id="horse" value="horse">
-                    <label id="horselabel" for="horse" role="radio"><img src="images/icons/Horse.png" alt="Icon For Selecting Horse"></label>
-                </p>
-                <p>
-                    <label for="zipcode">Zip</label>
-                    <input type="text" name="zipcode" id="zipcode" required pattern="(^\d{5}$)|(^\d{5}-\d{4}$)">
-                </p>
-                <input type="submit" name="submit" id="submit" value="Search">
+        <div class="container text-center text-md-left">
+            <div id="headerholder" class="row align-items-center">
+                <div id="logo" class="display-3 col-md-6">Cats and Do.gs</div>
+                <nav class="col-md-6 h5">
+                    <div class="row">
+                        <a class="col-6 active" href="index.html">Pet Search</a>
+                        <a class="col-6" href="shelter.html">Shelter Search</a>
+                    </div>
 
-            </fieldset>
-
-        </form>
+                </nav>
+            </div>
+        </div>
     </header>
 
     <main>
-        <section class="resultsheader"></section>
-        <section class="results">
+        <form class="search-bar">
+            <fieldset class="container">
+                <div class="d-flex flex-column flex-xl-row justify-content-between text-center text-xl-left">
+                    <div class="d-flex flex-row justify-content-between">
+                        <p class="">
+                            <input type="radio" name="pettype" id="cat" value="cat" checked="checked" class="visually-hidden">
+                            <label class="selectedIcon" id="catlabel" for="cat" role="radio">
+                                <img class="rounded-circle" src="images/icons/Cat.png" alt="Icon For Selecting Cat">
+                            </label>
+                        </p>
+                        <p class="">
+                            <input type="radio" name="pettype" id="dog" value="dog">
+                            <label id="doglabel" for="dog" role="radio">
+                                <img class="rounded-circle" src="images/icons/Dog.png" alt="Icon For Selecting Dog">
+                            </label>
+                        </p>
+                        <p class="">
+                            <input type="radio" name="pettype" id="bird" value="bird">
+                            <label id="birdlabel" for="bird" role="radio">
+                                <img class="rounded-circle" src="images/icons/Bird.png" alt="Icon For Selecting Bird">
+                            </label>
+                        </p>
+                        <p class="">
+                            <input type="radio" name="pettype" id="barnyard" value="barnyard">
+                            <label id="barnyardlabel" for="barnyard" role="radio">
+                                <img class="rounded-circle" src="images/icons/Barnyard.png" alt="Icon For Selecting Barnyard">
+                            </label>
+                        </p>
+                        <p class="">
+                            <input type="radio" name="pettype" id="reptile" value="reptile">
+                            <label id="reptilelabel" for="reptile" role="radio">
+                                <img class="rounded-circle" src="images/icons/Reptile.png" alt="Icon For Selecting Reptile">
+                            </label>
+                        </p>
+                        <p class="">
+                            <input type="radio" name="pettype" id="smallfurry" value="smallfurry">
+                            <label id="smallfurrylabel" for="smallfurry" role="radio">
+                                <img class="rounded-circle" src="images/icons/Smallfurry.png" alt="Icon For Selecting Smallfurry">
+                            </label>
+                        </p>
+                        <p class="">
+                            <input type="radio" name="pettype" id="horse" value="horse">
+                            <label id="horselabel" for="horse" role="radio">
+                                <img class="rounded-circle" src="images/icons/Horse.png" alt="Icon For Selecting Horse">
+                            </label>
+                        </p>
+                    </div>
+                    <div>
+                        <label class="invisible" for="zipcode">Zip</label>
+                        <input type="text" name="zipcode" id="zipcode" placeholder="Zip" required pattern="(^\d{5}$)">
+                        <input type="submit" name="submit" id="submit" value="Search">
+                    </div>
+                </div>
+            </fieldset>
 
+        </form>
+        <section>
+            <div class="resultsheaderbkg">
+                <p class="resultsheader container"></p>
+            </div>
+            <div class="container">
+                <p class="results row"></p>
+            </div>
         </section>
     </main>
     <footer>
-        <p> <a href="index.html">Pet Search</a></p>
-        <p><a href="shelter.html">Shelter Search</a></p>
-        <p>Header image courtesy of
-            <a href="https://unsplash.com/">unsplash</a>
-        </p>
-        <p>Powered by <a href="http://petfinder.com">Petfinder.com</a></p>
+        <div class="row text-center">
+            <p class="col">
+                <a href="index.html">Pet Search</a>
+            </p>
+            <p class="col">
+                <a href="shelter.html">Shelter Search</a>
+            </p>
+            <p class="col">Header image courtesy of
+                <a href="https://unsplash.com/">unsplash</a>
+            </p>
+            <p class="col">Powered by
+                <a href="http://petfinder.com">Petfinder.com</a>
+            </p>
+        </div>
     </footer>
 </body>
 

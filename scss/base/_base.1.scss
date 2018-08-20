@@ -1,0 +1,152 @@
+body{
+    font-family: $fontstack2;
+}
+
+header{
+    h1{
+        font-family: $fontstack1;
+        font-size: $largestfont;
+    }
+}
+
+//this makes sure the floated elements in the main body take up vertical space
+ main{
+     overflow: auto;
+ }
+
+
+
+article{
+
+    width:80%;
+    margin: 10%;
+    float: left;
+    background-color: black;
+    @include mq(medium){
+        position: relative;
+        width:30%;
+        margin: 2.5% 0 0 2.5%;
+        float: left;
+        height: 190px;
+        overflow: hidden;
+
+        //this makes the .slideinfo class when the mouse hovers over the parent article container
+        &:hover{
+            .slideinfo{
+                //adding in the transition
+                transform: translateY(-70px);
+            }
+        }
+
+      }
+
+    .pictureframe{
+        @extend %zero-edges;
+        width:100%;
+        @include mq(medium){
+            height: 190px;
+            overflow: hidden;
+            width: auto;
+        }
+        img{
+            width: 100%;
+            //@extend %zero-edges;
+            @include mq(medium){
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+
+    .slideinfo{
+        @extend %zero-edges;
+        padding: 8px;
+        background-color: $greytransp;
+        font-family: $fontstack2;
+        @include font-color-size($greylight, 16px, inherit);
+        transition: 1s;
+        }
+    p{
+        @extend %zero-edges;
+        @include mq(medium){
+            margin: 4px;
+        }
+    }
+
+    a{
+        text-decoration: none;
+        @include font-color-size($greylight, 16px, inherit);
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+}
+
+article:nth-child(3n+1){
+    clear: left;
+}
+
+@media (max-width:599px){
+    article{
+        clear:left;
+    }
+}
+
+
+footer{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    p{
+        margin-top: 10%;
+        font-family: $fontstack2;
+        @include font-color-size($greydark, 10px, inherit);
+        a{
+            text-decoration: none;
+            color: $greydark;
+        }
+
+        a:hover{
+            text-decoration: underline;
+        }
+    }
+
+}
+
+.spinner{
+    animation: spin 2.8s ease-in-out;
+}
+
+.wiggles{
+    animation: wiggle 2s ease-in-out 10s infinite;
+}
+
+@keyframes spin{
+    to {transform: rotateY(1080deg);}
+}
+
+@keyframes wiggle{
+    0% {transform: translateX(0px);}
+    1% {transform: translateX(2px);}
+    2% {transform: translateX(-4px);}
+    3% {transform: translateX(6px);}
+    4% {transform: translateX(-8px);}
+    5% {transform: translateX(0px);}
+    6% {transform: translateX(2px);}
+    7% {transform: translateX(-4px);}
+    8% {transform: translateX(6px);}
+    9% {transform: translateX(-8px);}
+    10% {transform: translateX(0px);}
+    100% {transform: translateX(0px);}
+}
+
+
+
+.visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+    position: absolute !important;
+    height: 1px; width: 1px; 
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+

@@ -4,19 +4,12 @@ const elresultsheader = document.querySelector(".resultsheader");
 const elcatradbtn = document.querySelector("#cat");
 const eldogradbtn = document.querySelector("#dog");
 const elbirdradbtn = document.querySelector("#bird");
+const elotherradbtn = document.querySelector("#other");
 const elbarnyardradbtn = document.querySelector("#barnyard");
 const elreptileradbtn = document.querySelector("#reptile");
 const elsmallfurryradbtn = document.querySelector("#smallfurry");
 const elhorseradbtn = document.querySelector("#horse");
 const elzipcode = document.querySelector("#zipcode");
-
-const elcatlabel = document.querySelector("#catlabel");
-const eldoglabel = document.querySelector("#doglabel");
-const elbirdlabel = document.querySelector("#birdlabel");
-const elbarnyardlabel = document.querySelector("#barnyardlabel");
-const elreptilelabel = document.querySelector("#reptilelabel");
-const elsmallfurrylabel = document.querySelector("#smallfurrylabel");
-const elhorselabel = document.querySelector("#horselabel");
 
  let object =""; 
 
@@ -92,16 +85,15 @@ function displayResults(resultsArray,petType,zipCode){
 
         let description = size +' '+age+' '+sex+' '+breed;
 
-        petGrid += '<article class="text-center col-md-6 col-xl-4">';
+        petGrid += '<article class="item">';
         petGrid += '<div class="pictureframe">'
-        petGrid += '<img src="' + largeURL +'" class="img-fluid rounded-circle" srcset="'+largeURL+' 992w, '+largestURL+' 1200w" alt="' + description + '"/>';
-        //petGrid += '<img src="' + largeURL +'" class=" rounded-circle" srcset="'+largeURL+' 992w, '+largestURL+' 1200w" alt="' + description + '"/>';
+        petGrid += '<img src="' + smallURL +'" class="img-circle" srcset="'+smallURL+' 600w, '+mediumURL+' 1200w, '+largeURL+' 3240w" alt="' + description + '"/>';
         petGrid += '</div>';
         petGrid += '<div class="slideinfo">';
         //Just here to make testing the alt information easier.
         //petGrid += '<p class="name">'+description+'</p>';        
-        petGrid += '<p class="">'+petname+'</p>';
-        petGrid += '<p class="">'+cityLocation+', '+stateLocation+'</p>';
+        petGrid += '<p class="name">'+petname+'</p>';
+        petGrid += '<p class="location">'+cityLocation+', '+stateLocation+'</p>';
 
         petGrid += "</div></article>";
     }
@@ -132,7 +124,7 @@ class Validator {
         const fieldValue = this.input.value;
 
         if (status.patternMismatch && this.type === "zip") {
-            this.addError(" Please use your 5 digit zip code ");
+            this.addError("Please use your 5 digit zip code");
         }
 
         return this.errors;
@@ -194,64 +186,6 @@ elsubmit.addEventListener("click", (event) => {
 
     }
 });
-
-//this section will show the selected pet option
-elcatradbtn.addEventListener('change', function(){
-    changeIcon(elcatlabel);
-});
-eldogradbtn.addEventListener('change', function(){
-    changeIcon(eldoglabel);
-});
-elbirdradbtn.addEventListener('change', function(){
-    changeIcon(elbirdlabel);
-});
-elbarnyardradbtn.addEventListener('change', function(){
-    changeIcon(elbarnyardlabel);
-});
-elreptileradbtn.addEventListener('change', function(){
-    changeIcon(elreptilelabel);
-});
-elsmallfurryradbtn.addEventListener('change', function(){
-    changeIcon(elsmallfurrylabel);
-});
-elhorseradbtn.addEventListener('change', function(){
-    changeIcon(elhorselabel);
-});
-
-//this clears the selected icon class from all icons and adds it to the appropriate icon
-function changeIcon(selected){
-    elcatlabel.classList.remove("selectedIcon");
-    eldoglabel.classList.remove("selectedIcon");
-    elbirdlabel.classList.remove("selectedIcon");
-    elbarnyardlabel.classList.remove("selectedIcon");
-    elreptilelabel.classList.remove("selectedIcon");
-    elsmallfurrylabel.classList.remove("selectedIcon");
-    elhorselabel.classList.remove("selectedIcon");
-
-    selected.classList.add("selectedIcon");
-}
-
-
-
-
-
-
-    $.ajax({
-        url:'http://api.petfinder.com/pet.find?format=json&key=b66b2fbbdcd11172493ed5c9c4a89365&animal=cat&location=10001',
-        dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
-        success:function(json){
-            // do stuff with json (in this case an array)
-            console.log(json);
-            object = json.petfinder.pets.pet;
-            displayResults(json.petfinder.pets.pet,"cat",10001);
-        },
-        //Need to put better error messages in here later #cont
-        //Come back and check invalid geographic location at header.status.message
-        error:function(){
-            alert("Error");
-        }      
-   });
-
 
 
 console.log("index.js loaded")

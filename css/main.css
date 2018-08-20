@@ -1,124 +1,49 @@
-@import url("https://use.typekit.net/nnw8apr.css");
-article .pictureframe, article .pictureframe img, article .slideinfo, article p {
-  margin: 0;
-  border: 0;
-  padding: 0; }
-
+@import url("https://use.typekit.net/mva4otb.css");
 body {
-  background-color: #F8F8F8;
-  font-family: Georgia, Arial, Helvetica, sans-serif;
-  perspective: 800px; }
+  font-family: "Arial Rounded MT Bold", Arial, Helvetica, sans-serif; }
 
-main {
+header {
+  height: 25vh;
+  background: url("/images/krista-mangulsone-53122-unsplash.jpg") no-repeat center center;
+  background-size: cover;
+  color: #002d7f; }
+  header #logo {
+    font-family: "Aisha Latin", Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px 8px #ffffff; }
+  header a {
+    color: #002d7f;
+    text-shadow: 2px 2px 8px #ffffff; }
+  header a.active {
+    text-decoration: underline;
+    font-size: 110%; }
+
+#headerholder {
+  padding-top: 7vh; }
+
+fieldset p {
+  display: inline; }
+
+label {
+  padding: 2px; }
+  label img {
+    width: 4rem;
+    background-color: #ffffff;
+    padding: 1px; }
+  label img:hover {
+    padding: 5px; }
+
+.selectedIcon img {
+  background-color: #ffd699;
+  padding: 4px;
+  color: #002d7f; }
+
+.results {
   overflow: auto; }
+  .results img {
+    width: 200px;
+    height: 200px; }
 
-article {
-  width: 80%;
-  margin: 10%;
-  float: left;
-  background-color: black; }
-  @media (min-width: 600px) {
-    article {
-      position: relative;
-      width: 30%;
-      margin: 2.5% 0 0 2.5%;
-      float: left;
-      height: 190px;
-      overflow: hidden; }
-      article:hover .slideinfo {
-        transform: translateY(-70px); } }
-  article .pictureframe {
-    width: 100%; }
-    @media (min-width: 600px) {
-      article .pictureframe {
-        height: 190px;
-        overflow: hidden;
-        width: auto; } }
-    article .pictureframe img {
-      width: 100%; }
-      @media (min-width: 600px) {
-        article .pictureframe img {
-          height: 100%;
-          width: 100%; } }
-  article .slideinfo {
-    padding: 8px;
-    background-color: rgba(0, 0, 0, 0.8);
-    font-family: "Futura PT", Arial, Helvetica, sans-serif;
-    color: #F8F8F8;
-    font-size: 16px;
-    font-weight: inherit;
-    transition: 1s; }
-  @media (min-width: 600px) {
-    article p {
-      margin: 4px; } }
-  article a {
-    text-decoration: none;
-    color: #F8F8F8;
-    font-size: 16px;
-    font-weight: inherit; }
-  article a:hover {
-    text-decoration: underline; }
-
-article:nth-child(3n+1) {
-  clear: left; }
-
-@media (max-width: 599px) {
-  article {
-    clear: left; } }
-
-footer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around; }
-  footer p {
-    margin-top: 10%;
-    font-family: "Futura PT", Arial, Helvetica, sans-serif;
-    color: #333333;
-    font-size: 10px;
-    font-weight: inherit; }
-    footer p a {
-      text-decoration: none;
-      color: #666666; }
-    footer p a:hover {
-      text-decoration: underline; }
-
-.spinner {
-  animation: spin 2.8s ease-in-out; }
-
-.wiggles {
-  animation: wiggle 2s ease-in-out 10s infinite; }
-
-@keyframes spin {
-  to {
-    transform: rotateY(1080deg); } }
-
-@keyframes wiggle {
-  0% {
-    transform: translateX(0px); }
-  1% {
-    transform: translateX(2px); }
-  2% {
-    transform: translateX(-4px); }
-  3% {
-    transform: translateX(6px); }
-  4% {
-    transform: translateX(-8px); }
-  5% {
-    transform: translateX(0px); }
-  6% {
-    transform: translateX(2px); }
-  7% {
-    transform: translateX(-4px); }
-  8% {
-    transform: translateX(6px); }
-  9% {
-    transform: translateX(-8px); }
-  10% {
-    transform: translateX(0px); }
-  100% {
-    transform: translateX(0px); } }
-
-.visually-hidden {
+input[type="radio"] {
   /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   position: absolute !important;
   height: 1px;
@@ -127,3 +52,46 @@ footer {
   clip: rect(1px 1px 1px 1px);
   /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px); }
+
+.search-bar {
+  background-color: #002d7f;
+  padding: 1rem; }
+
+.invisible {
+  /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+#zipcode {
+  border-radius: 5px;
+  height: 2em; }
+
+.error {
+  color: red; }
+
+#submit {
+  text-shadow: 1px 1px 8px #ffffff !important;
+  background-color: #002d7f;
+  border: none;
+  color: #ffffff;
+  text-decoration: underline;
+  font-size: 1.7rem;
+  margin-left: 2rem; }
+
+.resultsheaderbkg {
+  background-color: #ffd699bb;
+  color: #002d7f;
+  font-size: 2rem; }
+
+footer {
+  background-color: #002d7f;
+  color: #ffd699;
+  font-size: .8rem;
+  padding: 1rem; }
+  footer a {
+    color: #ffd699; }
