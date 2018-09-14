@@ -23,10 +23,12 @@
 
 <body>
     <header>
-        <div class="container text-center text-md-left">
+        <div class="container text-center text-lg-left">
             <div id="headerholder" class="row align-items-center">
-                <div id="logo" class="display-3 col-md-6">Cats and Do.gs</div>
-                <nav class="col-md-6 h5">
+                <div id="logo" class="col-lg-6 col-md-12">
+                    <img src="images/logo.png" alt="Cats and Dogs Logo">
+                </div>
+                <nav class="col-lg-6 col-md-12 h5">
                     <div class="row">
                         <a class="col-6 active" href="index.html">Pet Search</a>
                         <a class="col-6" href="shelter.html">Shelter Search</a>
@@ -42,6 +44,11 @@
             <fieldset class="container">
                 <div class="d-flex flex-column flex-xl-row justify-content-between text-center text-xl-left">
                     <div class="d-flex flex-row justify-content-between">
+                        <div>
+                            <label class="invisible" for="zipcode">Zip</label>
+                            <input type="text" name="zipcode" id="zipcode" placeholder="Zip" required pattern="(^\d{5}$)">
+                            <!-- <input type="submit" name="submit" id="submit" value="Search"> -->
+                        </div>
                         <p class="">
                             <input type="radio" name="pettype" id="cat" value="cat" checked="checked" class="visually-hidden">
                             <label class="selectedIcon" id="catlabel" for="cat" role="radio">
@@ -85,11 +92,7 @@
                             </label>
                         </p>
                     </div>
-                    <div>
-                        <label class="invisible" for="zipcode">Zip</label>
-                        <input type="text" name="zipcode" id="zipcode" placeholder="Zip" required pattern="(^\d{5}$)">
-                        <input type="submit" name="submit" id="submit" value="Search">
-                    </div>
+
                 </div>
             </fieldset>
 

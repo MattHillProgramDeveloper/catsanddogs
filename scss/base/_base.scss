@@ -4,30 +4,32 @@ body{
 }
 
 header{
-    height: 25vh;
+    height: 35vh;
     background: url("/images/krista-mangulsone-53122-unsplash.jpg") no-repeat center center;
     background-size: cover;
     color: $deepblue;
-
-#logo{
-        font-family: $fontstack1;
-        text-shadow: 2px 2px 8px #ffffff;
+    
+    img{
+        height: 25vh;
+        margin-bottom: 2vh;
     }
+
     a{
         color: $deepblue;
         text-shadow: 2px 2px 8px #ffffff;
+        font-size: 200%;
     }
 
     a.active{
         text-decoration: underline;
-        font-size: 110%;
+        font-size: 220%;
     }
 
     
 }
 
 #headerholder{
-    padding-top: 7vh;
+    padding-top: 2vh;
 }
 
 fieldset{

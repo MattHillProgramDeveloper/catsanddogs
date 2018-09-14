@@ -140,7 +140,7 @@ class Validator {
 }
 
 
-elsubmit.addEventListener("click", (event) => {
+function submitSearch(){
 
     //reset error count and displays
     let errorcount = 0;
@@ -193,29 +193,42 @@ elsubmit.addEventListener("click", (event) => {
         findPets(petType, zipCode);
 
     }
+}
+
+//this will attempt to run the search after every key up in the zip code field
+elzipcode.addEventListener('keyup', function () {
+    submitSearch();
 });
 
 //this section will show the selected pet option
 elcatradbtn.addEventListener('change', function(){
     changeIcon(elcatlabel);
+    submitSearch();
+
 });
 eldogradbtn.addEventListener('change', function(){
     changeIcon(eldoglabel);
+    submitSearch();
 });
 elbirdradbtn.addEventListener('change', function(){
     changeIcon(elbirdlabel);
+    submitSearch();
 });
 elbarnyardradbtn.addEventListener('change', function(){
     changeIcon(elbarnyardlabel);
+    submitSearch();
 });
 elreptileradbtn.addEventListener('change', function(){
     changeIcon(elreptilelabel);
+    submitSearch();
 });
 elsmallfurryradbtn.addEventListener('change', function(){
     changeIcon(elsmallfurrylabel);
+    submitSearch();
 });
 elhorseradbtn.addEventListener('change', function(){
     changeIcon(elhorselabel);
+    submitSearch();
 });
 
 //this clears the selected icon class from all icons and adds it to the appropriate icon
@@ -235,7 +248,7 @@ function changeIcon(selected){
 
 
 
-
+//This is the default NYC Dog search that runs when the page loads. Ideally I'll patch this into an api that checks zip codes based on IP address.
     $.ajax({
         url:'http://api.petfinder.com/pet.find?format=json&key=b66b2fbbdcd11172493ed5c9c4a89365&animal=cat&location=10001',
         dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
