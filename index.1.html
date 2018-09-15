@@ -42,110 +42,58 @@
     <main>
         <form class="search-bar">
             <fieldset class="container">
-                    <!-- Desktop Search Bar -->
-                    <div id="search" class="d-flex flex-row justify-content-between align-items-center">
-                        <p class="">
+                <div class="d-flex flex-column flex-xl-row justify-content-between text-center">
+                    <!-- <div class="d-flex flex- justify-content-between align-items-center"> -->
+                        <div>
                             <label class="invisible" for="zipcode">Zip</label>
                             <input type="text" name="zipcode" id="zipcode" placeholder="Zip" required pattern="(^\d{5}$)">
-                        </p>
-                        <p class="icon">
+                            <!-- <input type="submit" name="submit" id="submit" value="Search"> -->
+                        </div>
+                        <p class="">
                             <input type="radio" name="pettype" id="cat" value="cat" checked="checked" class="visually-hidden">
                             <label class="selectedIcon" id="catlabel" for="cat" role="radio">
                                 <img class="rounded-circle" src="images/icons/Cat.png" alt="Icon For Selecting Cat">
                             </label>
                         </p>
-                        <p class="icon">
+                        <p class="">
                             <input type="radio" name="pettype" id="dog" value="dog">
                             <label id="doglabel" for="dog" role="radio">
                                 <img class="rounded-circle" src="images/icons/Dog.png" alt="Icon For Selecting Dog">
                             </label>
                         </p>
-                        <p class="icon">
+                        <p class="">
                             <input type="radio" name="pettype" id="bird" value="bird">
                             <label id="birdlabel" for="bird" role="radio">
                                 <img class="rounded-circle" src="images/icons/Bird.png" alt="Icon For Selecting Bird">
                             </label>
                         </p>
-                        <p class="icon">
+                        <p class="">
                             <input type="radio" name="pettype" id="barnyard" value="barnyard">
                             <label id="barnyardlabel" for="barnyard" role="radio">
                                 <img class="rounded-circle" src="images/icons/Barnyard.png" alt="Icon For Selecting Barnyard">
                             </label>
                         </p>
-                        <p class="icon">
+                        <p class="">
                             <input type="radio" name="pettype" id="reptile" value="reptile">
                             <label id="reptilelabel" for="reptile" role="radio">
                                 <img class="rounded-circle" src="images/icons/Reptile.png" alt="Icon For Selecting Reptile">
                             </label>
                         </p>
-                        <p class="icon">
+                        <p class="">
                             <input type="radio" name="pettype" id="smallfurry" value="smallfurry">
                             <label id="smallfurrylabel" for="smallfurry" role="radio">
                                 <img class="rounded-circle" src="images/icons/Smallfurry.png" alt="Icon For Selecting Smallfurry">
                             </label>
                         </p>
-                        <p class="icon">
+                        <p class="">
                             <input type="radio" name="pettype" id="horse" value="horse">
                             <label id="horselabel" for="horse" role="radio">
                                 <img class="rounded-circle" src="images/icons/Horse.png" alt="Icon For Selecting Horse">
                             </label>
                         </p>
-                    </div>
-                    <!-- Mobile Search Bar -->
-                    <div id="mobilesearch" class="d-flex flex-row justify-content-between align-items-center">
-                            <p class="">
-                                <label class="invisible" for="mobilezipcode">Zip</label>
-                                <input type="text" name="zipcode" id="mobilezipcode" placeholder="Zip" required pattern="(^\d{5}$)">
-                            </p>
-                            <p id="dropdown">
-                                &#9776
-                            </p>
-                    </div>
+                    <!-- </div> -->
 
-                    <div id="dropdownicons" class="d-flex flex-row justify-content-around nodisplay">
-                            <p class="icon">
-                                <input type="radio" name="pettype" id="mobilecat" value="cat" class="visually-hidden">
-                                <label class="selectedIcon" id="mobilecatlabel" for="mobilecat" role="radio">
-                                    <img class="rounded-circle" src="images/icons/Cat.png" alt="Icon For Selecting Cat">
-                                </label>
-                            </p>
-                            <p class="icon">
-                                <input type="radio" name="pettype" id="mobiledog" value="dog">
-                                <label id="mobiledoglabel" for="mobiledog" role="radio">
-                                    <img class="rounded-circle" src="images/icons/Dog.png" alt="Icon For Selecting Dog">
-                                </label>
-                            </p>
-                            <p class="icon">
-                                <input type="radio" name="pettype" id="mobilebird" value="bird">
-                                <label id="mobilebirdlabel" for="mobilebird" role="radio">
-                                    <img class="rounded-circle" src="images/icons/Bird.png" alt="Icon For Selecting Bird">
-                                </label>
-                            </p>
-                            <p class="icon">
-                                <input type="radio" name="pettype" id="mobilebarnyard" value="barnyard">
-                                <label id="mobilebarnyardlabel" for="mobilebarnyard" role="radio">
-                                    <img class="rounded-circle" src="images/icons/Barnyard.png" alt="Icon For Selecting Barnyard">
-                                </label>
-                            </p>
-                            <p class="icon">
-                                <input type="radio" name="pettype" id="mobilereptile" value="reptile">
-                                <label id="mobilereptilelabel" for="mobilereptile" role="radio">
-                                    <img class="rounded-circle" src="images/icons/Reptile.png" alt="Icon For Selecting Reptile">
-                                </label>
-                            </p>
-                            <p class="icon">
-                                <input type="radio" name="pettype" id="mobilesmallfurry" value="smallfurry">
-                                <label id="mobilesmallfurrylabel" for="mobilesmallfurry" role="radio">
-                                    <img class="rounded-circle" src="images/icons/Smallfurry.png" alt="Icon For Selecting Smallfurry">
-                                </label>
-                            </p>
-                            <p class="icon">
-                                <input type="radio" name="pettype" id="mobilehorse" value="horse">
-                                <label id="mobilehorselabel" for="mobilehorse" role="radio">
-                                    <img class="rounded-circle" src="images/icons/Horse.png" alt="Icon For Selecting Horse">
-                                </label>
-                            </p>
-                        </div>
+                </div>
             </fieldset>
 
         </form>

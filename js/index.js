@@ -1,5 +1,4 @@
 //needed elements
-const elsubmit = document.querySelector("#submit");
 const elresultsheader = document.querySelector(".resultsheader");
 const elcatradbtn = document.querySelector("#cat");
 const eldogradbtn = document.querySelector("#dog");
@@ -17,6 +16,18 @@ const elbarnyardlabel = document.querySelector("#barnyardlabel");
 const elreptilelabel = document.querySelector("#reptilelabel");
 const elsmallfurrylabel = document.querySelector("#smallfurrylabel");
 const elhorselabel = document.querySelector("#horselabel");
+
+const elmobilecatradbtn = document.querySelector("#mobilecat");
+const elmobiledogradbtn = document.querySelector("#mobiledog");
+const elmobilebirdradbtn = document.querySelector("#mobilebird");
+const elmobilebarnyardradbtn = document.querySelector("#mobilebarnyard");
+const elmobilereptileradbtn = document.querySelector("#mobilereptile");
+const elmobilesmallfurryradbtn = document.querySelector("#mobilesmallfurry");
+const elmobilehorseradbtn = document.querySelector("#mobilehorse");
+const elmobilezipcode = document.querySelector("#mobilezipcode");
+const eldropdown = document.querySelector("#dropdown");
+const eldropdownicons = document.querySelector("#dropdownicons");
+
 
  let object =""; 
 
@@ -140,19 +151,30 @@ class Validator {
 }
 
 
-function submitSearch(){
+function submitSearch(type){
 
     //reset error count and displays
     let errorcount = 0;
     event.preventDefault();
     removeErrors();
 
+    
 
 
-
-
+    //This section is a work around, it is trash code and needs cleaned up down the line, their should not be two search versions, it's just too late in the game #cont
     //check zip
-    let validateZip = new Validator(elzipcode, "zip");
+    let validateZip;
+    //store the zipcode
+    let zipCode;
+    if(type==="desktop"){
+        validateZip= new Validator(elzipcode, "zip");
+        zipCode = elzipcode.value;
+    }
+    if(type==="mobile"){
+        validateZip= new Validator(elmobilezipcode, "zip");
+        zipCode = elmobilezipcode.value;
+    }
+     
     let zipErrors = validateZip.getMessages();
 
     if (zipErrors.length > 0) {
@@ -187,8 +209,7 @@ function submitSearch(){
             petType = elhorseradbtn.value;
         }
 
-        //store the zipcode
-        let zipCode = elzipcode.value;
+
         //pass both arguments to the find pets function
         findPets(petType, zipCode);
 
@@ -197,38 +218,83 @@ function submitSearch(){
 
 //this will attempt to run the search after every key up in the zip code field
 elzipcode.addEventListener('keyup', function () {
-    submitSearch();
+    submitSearch("desktop");
+});
+elmobilezipcode.addEventListener('keyup', function () {
+    submitSearch("mobile");
 });
 
 //this section will show the selected pet option
 elcatradbtn.addEventListener('change', function(){
     changeIcon(elcatlabel);
-    submitSearch();
+    submitSearch("desktop");
 
 });
 eldogradbtn.addEventListener('change', function(){
     changeIcon(eldoglabel);
-    submitSearch();
+    submitSearch("desktop");
 });
 elbirdradbtn.addEventListener('change', function(){
     changeIcon(elbirdlabel);
-    submitSearch();
+    submitSearch("desktop");
 });
 elbarnyardradbtn.addEventListener('change', function(){
     changeIcon(elbarnyardlabel);
-    submitSearch();
+    submitSearch("desktop");
 });
 elreptileradbtn.addEventListener('change', function(){
     changeIcon(elreptilelabel);
-    submitSearch();
+    submitSearch("desktop");
 });
 elsmallfurryradbtn.addEventListener('change', function(){
     changeIcon(elsmallfurrylabel);
-    submitSearch();
+    submitSearch("desktop");
 });
 elhorseradbtn.addEventListener('change', function(){
     changeIcon(elhorselabel);
-    submitSearch();
+    submitSearch("desktop");
+});
+
+elmobilecatradbtn.addEventListener('change', function(){
+    changeIcon(elcatlabel);
+    submitSearch("mobile");
+
+});
+elmobiledogradbtn.addEventListener('change', function(){
+    changeIcon(eldoglabel);
+    hidemobileicons();
+    submitSearch("mobile");
+});
+elmobilebirdradbtn.addEventListener('change', function(){
+    changeIcon(elbirdlabel);
+    hidemobileicons();
+    submitSearch("mobile");
+});
+elmobilebarnyardradbtn.addEventListener('change', function(){
+    changeIcon(elbarnyardlabel);
+    hidemobileicons();
+    submitSearch("mobile");
+});
+elmobilereptileradbtn.addEventListener('change', function(){
+    changeIcon(elreptilelabel);
+    hidemobileicons();
+    submitSearch("mobile");
+});
+elmobilesmallfurryradbtn.addEventListener('change', function(){
+    changeIcon(elsmallfurrylabel);
+    hidemobileicons();
+    submitSearch("mobile");
+});
+elmobilehorseradbtn.addEventListener('change', function(){
+    changeIcon(elhorselabel);
+    hidemobileicons();
+    submitSearch("mobile");
+});
+
+
+eldropdown.addEventListener('click', function(){
+    console.log("dropdown clicked");
+    showmobileicons();
 });
 
 //this clears the selected icon class from all icons and adds it to the appropriate icon
@@ -244,8 +310,17 @@ function changeIcon(selected){
     selected.classList.add("selectedIcon");
 }
 
-
-
+//this hides the mobile icons
+function hidemobileicons(){
+    eldropdownicons.classList.add("nodisplay");
+    eldropdownicons.classList.remove("blockdisplay");
+}
+//this shows the mobile icons
+function showmobileicons(){
+    console.log("showmobileicons");
+    eldropdownicons.classList.remove("nodisplay");
+    eldropdownicons.classList.add("blockdisplay");
+}
 
 
 //This is the default NYC Dog search that runs when the page loads. Ideally I'll patch this into an api that checks zip codes based on IP address.

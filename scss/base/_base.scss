@@ -4,20 +4,21 @@ body{
 }
 
 header{
-    height: 35vh;
+    height: auto;
     background: url("/images/krista-mangulsone-53122-unsplash.jpg") no-repeat center center;
     background-size: cover;
     color: $deepblue;
     
     img{
         height: 25vh;
-        margin-bottom: 2vh;
+        margin: 2vh 0;
     }
 
     a{
         color: $deepblue;
         text-shadow: 2px 2px 8px #ffffff;
         font-size: 200%;
+        margin-bottom: 2vh;
     }
 
     a.active{
@@ -35,7 +36,10 @@ header{
 fieldset{
     p{
         display: inline;
+        margin: 1vh 0;
     }
+
+
 }
 
 label{
@@ -113,6 +117,10 @@ input[type="radio"]{ /* https://snook.ca/archives/html_and_css/hiding-content-fo
     font-size: 2rem;
 }
 
+.resultsheader{
+    padding:1vh 15px;
+}
+
 footer{
     background-color: $deepblue;
     color: $paleorange;
@@ -121,4 +129,35 @@ footer{
     a{
         color:$paleorange;
     }
+}
+
+
+#search{
+    display: none !important; 
+    @include mq(medium){
+        display: block !important;
+    }
+}
+
+
+
+#mobilesearch{
+    @include mq(medium){
+        display: none !important; 
+    }
+}
+
+#dropdown{
+    font-family: $fontstack1;
+    font-size: 2em;
+    color:$paleorange;
+}
+
+
+
+.nodisplay{
+    display:none !important;
+}
+.blockdisplay{
+    display: inline !important;
 }
