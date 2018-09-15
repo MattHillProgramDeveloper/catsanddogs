@@ -1,6 +1,6 @@
 @import url("https://use.typekit.net/mva4otb.css");
 body {
-  font-family: "Aisha Latin", Arial, Helvetica, sans-serif; }
+  font-family: "Pinot Grigio Modern", Arial, Helvetica, sans-serif; }
 
 header {
   height: auto;
@@ -11,6 +11,7 @@ header {
     height: 25vh;
     margin: 2vh 0; }
   header a {
+    font-family: "Aisha Latin", Arial, Helvetica, sans-serif;
     color: #002d7f;
     text-shadow: 2px 2px 8px #ffffff;
     font-size: 200%;
@@ -45,6 +46,37 @@ label {
   .results img {
     width: 200px;
     height: 200px; }
+  .results tr {
+    color: #002d7f; }
+  .results th {
+    font-size: 1rem; }
+  .results td {
+    font-size: .8rem; }
+  .results th:first-child {
+    padding-left: 2rem; }
+  .results td:first-child {
+    padding-left: 2rem; }
+  .results th:last-child {
+    padding-right: 2rem; }
+  .results td:last-child {
+    padding-right: 2rem; }
+  @media (min-width: 992px) {
+    .results th {
+      font-size: 1.8rem; }
+    .results td {
+      font-size: 1.6rem; }
+    .results th:first-child {
+      padding-left: 10rem; }
+    .results td:first-child {
+      padding-left: 10rem; }
+    .results th:last-child {
+      padding-right: 10rem; }
+    .results td:last-child {
+      padding-right: 10rem; } }
+  .results tr:nth-child(even) {
+    background: #ffd699bb; }
+  .results tr:nth-child(odd) {
+    background: #002d7f44; }
 
 input[type="radio"] {
   /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
@@ -57,6 +89,7 @@ input[type="radio"] {
   clip: rect(1px, 1px, 1px, 1px); }
 
 .search-bar {
+  font-family: "Arial Rounded MT Bold", Arial, Helvetica, sans-serif;
   background-color: #002d7f;
   padding: 1rem; }
 
@@ -92,7 +125,8 @@ input[type="radio"] {
   font-size: 2rem; }
 
 .resultsheader {
-  padding: 1vh 15px; }
+  padding: 1vh 15px;
+  margin-bottom: 0 !important; }
 
 footer {
   background-color: #002d7f;
@@ -113,7 +147,6 @@ footer {
     display: none !important; } }
 
 #dropdown {
-  font-family: "Arial Rounded MT Bold", Arial, Helvetica, sans-serif;
   font-size: 2em;
   color: #ffd699; }
 
